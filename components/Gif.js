@@ -1,6 +1,6 @@
 var GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 
-var styles = {
+const styles = {
     minHeight: '320px',
     maxWidth: '1200px',
     border: '1px solid black',
@@ -10,7 +10,7 @@ var styles = {
     margin: '0.5em auto'
 };
 
-var imgStyles = {
+const imgStyles = {
     width: '100%',
     maxWidth: '380px',
     maxHeight: '450px',
@@ -24,7 +24,7 @@ Gif = React.createClass({
     },
     
     render: function() {
-        var url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
+        const url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
         
         return (
             <div style={styles}>

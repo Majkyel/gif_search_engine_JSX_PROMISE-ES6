@@ -7,9 +7,9 @@ Search = React.createClass({
     },
     
     handleChange: function(event) {
-        var searchingText = event.target.value;
+        const searchingText = event.target.value;
         this.setState({
-            searchingText: searchingText
+            searchingText
         });
              
         return searchingText.length > 2 ? this.props.onSearch(searchingText) : null;   
@@ -25,7 +25,7 @@ Search = React.createClass({
     
     render: function () {
      
-        var styles = {
+        const styles = {
             fontSize: '0.7em',
             width: '90%',
             maxWidth: '500px',
@@ -43,7 +43,7 @@ Search = React.createClass({
                     onKeyUp={this.handleKeyUp}
                     placeholder='Tutaj wpisz wyszukiwaną frazę'
                     style={styles}
-                    value={this.state.searchTerm}
+                    value={this.state.searchingText}
                 />
     }
 });

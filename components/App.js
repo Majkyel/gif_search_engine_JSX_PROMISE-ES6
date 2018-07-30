@@ -15,21 +15,21 @@ App = React.createClass({
         this.getGif(searchingText).then(gif => {
             this.setState({
                 loading: false,
-                gif: gif,
-                searchingText: searchingText
+                searchingText,
+                gif
             });
         });
     },
     
     getGif: function(searchingText) {
         return new Promise ((resolve, reject) => {
-            var url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + '8r8u8bACBZn3RNjQqWp8cDrzdKwuCykb' + '&tag=' + searchingText;  
-            var xhr = new XMLHttpRequest();
+            const url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + '8r8u8bACBZn3RNjQqWp8cDrzdKwuCykb' + '&tag=' + searchingText;  
+            const xhr = new XMLHttpRequest();
             xhr.open('GET', url);
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    var data = JSON.parse(xhr.responseText).data;
-                    var gif = {
+                    const data = JSON.parse(xhr.responseText).data;
+                    let gif = {
                         url: data.fixed_width_downsampled_url,
                         sourceUrl: data.url
                     };
@@ -42,7 +42,7 @@ App = React.createClass({
     
     render: function() {
         
-        var styles = {
+        const styles = {
             margin: '0 auto',
             textAlign: 'center',
             width: '90%',
